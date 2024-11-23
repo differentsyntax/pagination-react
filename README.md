@@ -1,51 +1,33 @@
-# React + TypeScript + Vite
+## Paginated List from API
+Task: You are required to fetch and display a paginated list of items from an API. The items represent products, each with the following attributes:
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+id: Unique identifier for the product.
+name: Name of the product.
+price: Price of the product.
+category: Category of the product (e.g., "Electronics", "Clothing").
+Requirements:
+Fetch Data:
 
-Currently, two official plugins are available:
+Fetch data from the provided API endpoint: https://fakestoreapi.com/products
+The API supports pagination with the following query parameters:
+page: The current page number (default: 1).
+limit: The number of items per page (default: 10).
+Example request: https://fakestoreapi.com/products?limit=5&page=1
+Display Data:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Display the list of products in a visually clean format (e.g., table or card layout).
+Each item should display:
+name
+price
+category
+Pagination Controls:
 
-## Expanding the ESLint configuration
+Add "Next" and "Previous" buttons to navigate between pages.
+The "Previous" button should be disabled on the first page.
+The "Next" button should be disabled when there are no more items to fetch.
+Loading State:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Show a loading indicator while fetching data from the API.
+Error Handling:
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
-# pagination-react
+Display an appropriate error message if the API request fails.
